@@ -7,7 +7,7 @@ comments: true
 categories:
 ---
 
-Order a #2. It comes with two small cheeseburgers—but ask for it without cheese.
+Order a #2—it comes with two small cheeseburgers but ask for it without cheese.
 
 Do a hybrid up-size by asking for a large drink but sticking with the regular-sized fries.  Do not order your meal to-go. If you do, the minute you leave the building, your meal will be instantly cold and therefore inedible. While waiting for your credit card transaction to process, quickly scan the restaurant for the Coca Cola Freestyle machine. If you see one, ask the cashier to fill up your diet soda at the drive-through fountain. You don’t want to risk your diet soda being contaminated by other flavors. Don’t even consider ordering a sugary soda, do I need to remind you how many calories are in the fries alone (380 which is significantly more than just one of the mini hamburgers you’re going to get)?
 

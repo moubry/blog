@@ -1,12 +1,13 @@
 ---
 layout: post
 title: "“Why wasn’t I consulted?”"
+author: Sean Moubry
 date: 2014-02-02 16:00:00 -0600
 comments: true
 categories:
 ---
 
-<img src="images/that_motherfucker.jpg" alt="That motherfucker." width="100%">
+<img src="/images/that_motherfucker.jpg" alt="That motherfucker." width="100%">
 
 Paul Ford, in his great essay [The Web Is a Customer Service Medium](http://www.ftrain.com/wwic.html):
 
@@ -20,7 +21,7 @@ Then there's the variant: "Nobody asked me!" which is best invoked as a defense 
 
 While this victim-card-playing character I've painted here is a little exaggerated (but not much), they seriously could've *actually* been able to prevent a fallout from a bad decision!
 
-<img src="images/oh_hell_no.jpg" alt="Oh, hell no." width="100%">
+<img src="/images/oh_hell_no.jpg" alt="Oh, hell no." width="100%">
 
 So it's worth considering: why *weren't* you consulted?
 
@@ -52,7 +53,7 @@ This certainly isn't a prerequisite for being consulted. But being the boss awar
 
 "We didn't want to waste your time, and figured you had better things you could be doing anyway!" Consider that this is much more likely to happen if you feign busyness or make a show of how much unrelated responsibility you've otherwise accumulated. No problem should be too small for you engage with.
 
-<img src="images/this_is_not_happening.jpg" alt="This is not happening." width="100%">
+<img src="/images/this_is_not_happening.jpg" alt="This is not happening." width="100%">
 
 ### They don't like you.
 

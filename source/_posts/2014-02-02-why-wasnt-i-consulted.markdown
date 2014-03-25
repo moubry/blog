@@ -63,6 +63,9 @@ A combination of these reasons are used when someone subconsciously decides who 
 
 You have to earn it.
 
+<blockquote class="twitter-tweet" lang="en"><p>If someone goes around you to get something done, you&#39;re becoming irrelevant.</p>&mdash; Fourth Valve (@fourthvalve) <a href="https://twitter.com/fourthvalve/statuses/11103390834622465">December 4, 2010</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 This is all pointing to a common truth: the cost of including you outweighs the benefit in doing so.
 
 One way to solve this problem in an organization is to bring down the cost of including people in a decision making process. For example, consider making decisions in a public place like a chat room that everyone has access to. You may be surprised at how well this scales. Plus, there's a record of how the decision was made so you can later evaluate how a good of a decision was made. This probably only works if you have a blame free culture, though—and you probably don't.

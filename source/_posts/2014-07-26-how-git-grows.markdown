@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How Git Grows"
+author: Sean Moubry
 date: 2014-07-26 21:39:58 -0500
 comments: true
 categories:

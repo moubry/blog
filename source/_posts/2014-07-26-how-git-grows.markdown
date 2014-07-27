@@ -137,7 +137,7 @@ Nope.
 We Do This To Ourselves
 -----------------------
 
-GitHub has super useful, world-class image diffing support. In order to diff images, you have to commit multiple versions of the same image. And as we demonstrated above, Git isn’t great at optimizing for this behavior.
+GitHub has [super useful, world-class image diffing support][github]. In order to diff images, you have to commit multiple versions of the same image. And as we demonstrated above, Git isn’t great at optimizing for this behavior.
 
 This isn’t the only feature GitHub supports despite it being a pretty bad idea. From their ["What is my disk quota?"][github-limit] page:
 

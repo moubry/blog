@@ -33,7 +33,7 @@ Let’s make our first commit—we’ll throw in an image from elsewhere on the 
 
 	$ ls -lahS /Library/Desktop\ Pictures/
 
-`Beach.jpg` looks good. We’ll move and rename it to `background.jpg`:
+`Beach.jpg` looks good. Let’s copy it into our project:
 
 	$ cp /Library/Desktop\ Pictures/Beach.jpg background.jpg
 
@@ -70,9 +70,11 @@ The objects again:
 	  0B	/Users/sean/Developer/backgrounds/.git/objects/info
 	  0B	/Users/sean/Developer/backgrounds/.git/objects/pack
 
-Use the app Preview to trivial change the content of the image. Add an arrow or some text somewhere on it. Leave it to be mostly the same image.
+Use Preview.app to trivially change the content of the image:
 
 	$ open background.jpg
+
+Add an arrow or some text somewhere on it. Just leave it mostly the same image.
 
 Commit the change:
 
@@ -158,7 +160,7 @@ Git has features that optimize disk space for text data. It’s not great at bin
 
 Maybe it’s not technically possible to only store the diff from an image change. Maybe Git just doesn’t have this feature. Maybe committing images inefficiently isn’t that big of a deal.
 
-Committing large binaries files is fine, I guess. The value seems to outweigh the costs, which appears to be performance, disk size, and clone time. Should be fine as long as you don’t project you’ll ever blow past your Git host’s disk quota. However, this seems like a hard thing to project.
+Committing large binary files is fine, I guess. The value seems to outweigh the costs, which appears to be performance, disk size, and clone time. It should be fine as long as you don’t anticipate that you’ll ever blow past your Git host’s disk quota. However, this seems like a hard thing to estimate for.
 
 Going back in time to remove binary files [does not look trivial][prune].
 

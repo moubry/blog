@@ -13,8 +13,10 @@ The more you commit to a Git repository, the bigger the repository gets.
 
 A project’s repository lives in a `.git` folder at its root. Our Rails project at TripCase has a 60M Git folder:
 
-	$ du -sh ~/sabre/tripcase-rails/.git
-	 60M	/Users/sean/sabre/tripcase-rails/.git
+```bash
+$ du -sh ~/sabre/tripcase-rails/.git
+ 60M	/Users/sean/sabre/tripcase-rails/.git
+```
 
 This folder could’ve been a lot bigger, but Git has [clever compression mechanisms to *only store the diffs*][packfiles] between files instead of the full file with every commit.
 
@@ -25,95 +27,119 @@ An Exercise
 
 Create a new repository:
 
-	$ mkdir -p ~/Developer/backgrounds
-	$ cd ~/Developer/backgrounds
-	$ git init
+```bash
+$ mkdir -p ~/Developer/backgrounds
+$ cd ~/Developer/backgrounds
+$ git init
+```
 
 Let’s make our first commit—we’ll throw in an image from elsewhere on the disk. Let’s find a good one:
 
-	$ ls -lahS /Library/Desktop\ Pictures/
+```bash
+$ ls -lahS /Library/Desktop\ Pictures/
+```
 
 `Beach.jpg` looks good. Let’s copy it into our project:
 
-	$ cp /Library/Desktop\ Pictures/Beach.jpg background.jpg
+```bash
+$ cp /Library/Desktop\ Pictures/Beach.jpg background.jpg
+```
 
 Commit it:
 
-	$ git add background.jpg
-	$ git commit -am "Initial commit"
+```bash
+$ git add background.jpg
+$ git commit -am "Initial commit"
+```
 
 Now check out the [objects folder][packfiles]:
 
-	$ du -sh ~/Developer/backgrounds/.git/objects/*
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/52
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/68
-	10.0M	/Users/sean/Developer/backgrounds/.git/objects/c7
-	  0B	/Users/sean/Developer/backgrounds/.git/objects/info
-	  0B	/Users/sean/Developer/backgrounds/.git/objects/pack
+```bash
+$ du -sh ~/Developer/backgrounds/.git/objects/*
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/52
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/68
+10.0M	/Users/sean/Developer/backgrounds/.git/objects/c7
+  0B	/Users/sean/Developer/backgrounds/.git/objects/info
+  0B	/Users/sean/Developer/backgrounds/.git/objects/pack
+```
 
 Notice the "10.0M" object.
 
 Let’s overwrite that file with a new image (the largest one in the backgrounds directory `Zebras.jpg`) and commit it:
 
-	$ cp /Library/Desktop\ Pictures/Zebras.jpg background.jpg
-	$ git commit -am "Zebras over Beaches"
+```bash
+$ cp /Library/Desktop\ Pictures/Zebras.jpg background.jpg
+$ git commit -am "Zebras over Beaches"
+```
 
 The objects again:
 
-	$ du -sh ~/Developer/backgrounds/.git/objects/*
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/27
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/52
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/68
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/7e
-	10.0M	/Users/sean/Developer/backgrounds/.git/objects/c7
-	 25M	/Users/sean/Developer/backgrounds/.git/objects/f0
-	  0B	/Users/sean/Developer/backgrounds/.git/objects/info
-	  0B	/Users/sean/Developer/backgrounds/.git/objects/pack
+```bash
+$ du -sh ~/Developer/backgrounds/.git/objects/*
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/27
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/52
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/68
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/7e
+10.0M	/Users/sean/Developer/backgrounds/.git/objects/c7
+ 25M	/Users/sean/Developer/backgrounds/.git/objects/f0
+  0B	/Users/sean/Developer/backgrounds/.git/objects/info
+  0B	/Users/sean/Developer/backgrounds/.git/objects/pack
+```
 
 Use Preview.app to trivially change the content of the image:
 
-	$ open background.jpg
+```bash
+$ open background.jpg
+```
 
 Add an arrow or some text somewhere on it. Just leave it mostly the same image.
 
 Commit the change:
 
-	$ git commit -am "Adding an arrow to Zebras"
+```bash
+$ git commit -am "Adding an arrow to Zebras"
+```
 
 The objects again:
 
-	$ du -sh ~/Developer/backgrounds/.git/objects/*
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/0f
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/27
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/52
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/68
-	 28M	/Users/sean/Developer/backgrounds/.git/objects/7e
-	10.0M	/Users/sean/Developer/backgrounds/.git/objects/c7
-	 25M	/Users/sean/Developer/backgrounds/.git/objects/f0
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/fa
-	  0B	/Users/sean/Developer/backgrounds/.git/objects/info
-	  0B	/Users/sean/Developer/backgrounds/.git/objects/pack
+```bash
+$ du -sh ~/Developer/backgrounds/.git/objects/*
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/0f
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/27
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/52
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/68
+ 28M	/Users/sean/Developer/backgrounds/.git/objects/7e
+10.0M	/Users/sean/Developer/backgrounds/.git/objects/c7
+ 25M	/Users/sean/Developer/backgrounds/.git/objects/f0
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/fa
+  0B	/Users/sean/Developer/backgrounds/.git/objects/info
+  0B	/Users/sean/Developer/backgrounds/.git/objects/pack
+```
 
 There’s a new 28M object right there after the 25M object. Why? They’re essentially the same image, except for I added an arrow to it. Shouldn’t Git get be fancy and know how to only store the diff?
 
 Let’s use the `git-gc` command to cleanup the `objects` directory:
 
-	$ git gc
-	Counting objects: 9, done.
-	Delta compression using up to 8 threads.
-	Compressing objects: 100% (6/6), done.
-	Writing objects: 100% (9/9), done.
-	Total 9 (delta 0), reused 0 (delta 0)
+```bash
+$ git gc
+Counting objects: 9, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), done.
+Total 9 (delta 0), reused 0 (delta 0)
 
-	$ du -sh ~/Developer/backgrounds/.git/objects/*
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/info
-	 63M	/Users/sean/Developer/backgrounds/.git/objects/pack
+$ du -sh ~/Developer/backgrounds/.git/objects/*
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/info
+ 63M	/Users/sean/Developer/backgrounds/.git/objects/pack
+```
 
 Oh, so that’s what cleanup does. The pack folder there contains the following files:
 
-	$ du -sh ~/Developer/backgrounds/.git/objects/pack/*
-	$ 4.0K	/Users/sean/Developer/backgrounds/.git/objects/pack/pack-ba1ac2ddcbb7e3d283a6eae112a073564bcdbdfd.idx
-	$  63M	/Users/sean/Developer/backgrounds/.git/objects/pack/pack-ba1ac2ddcbb7e3d283a6eae112a073564bcdbdfd.pack
+```bash
+$ du -sh ~/Developer/backgrounds/.git/objects/pack/*
+$ 4.0K	/Users/sean/Developer/backgrounds/.git/objects/pack/pack-ba1ac2ddcbb7e3d283a6eae112a073564bcdbdfd.idx
+$  63M	/Users/sean/Developer/backgrounds/.git/objects/pack/pack-ba1ac2ddcbb7e3d283a6eae112a073564bcdbdfd.pack
+```
 
 Notice that that pack file is 63M which is exactly the sum of the objects we had before (28M + 10M + 25M). Probably would’ve been more useful if there were unreachable objects or duplicate objects.
 
@@ -123,16 +149,18 @@ Notice that that pack file is 63M which is exactly the sum of the objects we had
 
 Let’s see if that helps:
 
-	$ git gc --aggressive
-	Counting objects: 9, done.
-	Delta compression using up to 8 threads.
-	Compressing objects: 100% (6/6), done.
-	Writing objects: 100% (9/9), done.
-	Total 9 (delta 0), reused 9 (delta 0)
+```bash
+$ git gc --aggressive
+Counting objects: 9, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), done.
+Total 9 (delta 0), reused 9 (delta 0)
 
-	$ du -sh ~/Developer/backgrounds/.git/objects/*
-	4.0K	/Users/sean/Developer/backgrounds/.git/objects/info
-	 63M	/Users/sean/Developer/backgrounds/.git/objects/pack
+$ du -sh ~/Developer/backgrounds/.git/objects/*
+4.0K	/Users/sean/Developer/backgrounds/.git/objects/info
+ 63M	/Users/sean/Developer/backgrounds/.git/objects/pack
+```
 
 Nope.
 

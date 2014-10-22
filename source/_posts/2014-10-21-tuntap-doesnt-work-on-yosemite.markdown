@@ -56,12 +56,14 @@ Install TunTap:
 
 Run the commands listed in Homebrew/TunTap’s installation output.
 
-Run:
+Start TunTap by loading its kernel extensions:
 
     sudo kextload /Library/Extensions/tap.kext
     sudo kextload /Library/Extensions/tun.kext
 
 Verify by running `ls /dev/tun*` and confirm that it lists ~10 virtual interfaces.
+
+If you ever get the `can't initialise tunnel interface` error again, check to see if TunTap’s kexts are loaded by running the above command again. You may need to configure OS X to load them at startup.
 
 ## Undo
 
